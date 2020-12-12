@@ -5,14 +5,19 @@
         <template v-slot:default>
           <thead>
             <tr>
-              <th class="text-left">ID</th>
-              <th class="text-left">Name</th>
+              <th
+                class="text-left"
+                v-for="(header, index) in headers"
+                :key="index"
+              >
+                {{ header }}
+              </th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="subject in subjects" :key="subject.id">
-              <td>{{ subject.id }}</td>
-              <td>{{ subject.name }}</td>
+            <tr v-for="record in records" :key="record.id">
+              <td>{{ record.id }}</td>
+              <td>{{ record.name }}</td>
             </tr>
           </tbody>
         </template>
@@ -23,11 +28,14 @@
 
 <script>
 export default {
+  props: {
+    headers: Array,
+    table_name: String,
+  },
   data() {
     return {
       loaded: false,
-      headers: ["id", "name"],
-      subjects: null,
+      records: null,
     };
   },
   mounted() {
@@ -35,10 +43,10 @@ export default {
   },
   methods: {
     async fetchSomething() {
-      const subjects = await this.$axios.$get(
-        "http://localhost/maurice_scheduler/listSubjects.php"
+      const records = await this.$axios.$get(
+        "http://localhost/maurice_scheduler/list" + this.table_name + ".php"
       );
-      this.subjects = subjects;
+      this.records = records;
       this.loaded = true;
     },
   },

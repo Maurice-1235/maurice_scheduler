@@ -113,8 +113,8 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'List Assignments',
+          to: '/assignments'
         },
       ],
       miniVariant: false,

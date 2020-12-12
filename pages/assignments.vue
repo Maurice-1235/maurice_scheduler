@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ListObjects table_name="subjects" v-bind:headers="headers"></ListObjects>
+    <ListObjects table_name="assignments" v-bind:headers="headers"></ListObjects>
   </div>
 </template>
 
@@ -11,7 +11,12 @@ export default {
     return {
       headers: [
         "ID",
-        "Name",
+        "Subject",
+        "Title",
+        "Detail",
+        "Due date",
+        "Score",
+        "Done",
       ],
     };
   },
