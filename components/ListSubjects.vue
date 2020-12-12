@@ -1,5 +1,7 @@
 <template>
-  <div>list subject</div>
+  <div>
+    
+  </div>
 </template>
 
 <script>
@@ -9,13 +11,14 @@ export default {
       subjects: null,
     };
   },
-  mounted () {
-    const subjects = await this.$axios.$get("http://localhost/maurice_scheduler/listSubjects.php");
-    this.subjects = subjects;
+  mounted() {
+    this.fetchSomething();
   },
   methods: {
     async fetchSomething() {
-      const subjects = await this.$axios.$get("http://localhost/maurice_scheduler/listSubjects.php");
+      const subjects = await this.$axios.$get(
+        "http://localhost/maurice_scheduler/listSubjects.php"
+      );
       this.subjects = subjects;
     },
   },
