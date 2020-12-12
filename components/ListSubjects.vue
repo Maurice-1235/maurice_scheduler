@@ -1,32 +1,23 @@
 <template>
   <div>
     <template>
-  <v-simple-table v-if="loaded"> 
-    <template v-slot:default>
-      <thead>
-        <tr>
-          <th class="text-left">
-            Name
-          </th>
-          <th class="text-left">
-            Calories
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="item in desserts"
-          :key="item.name"
-        >
-          <td>{{ item.id }}</td>
-          <td>{{ item.name }}</td>
-        </tr>
-      </tbody>
+      <v-simple-table v-if="loaded">
+        <template v-slot:default>
+          <thead>
+            <tr>
+              <th class="text-left">ID</th>
+              <th class="text-left">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="subject in subjects" :key="subject.id">
+              <td>{{ subject.id }}</td>
+              <td>{{ subject.name }}</td>
+            </tr>
+          </tbody>
+        </template>
+      </v-simple-table>
     </template>
-  </v-simple-table>
-</template>
-  </div>
-</template>
   </div>
 </template>
 
