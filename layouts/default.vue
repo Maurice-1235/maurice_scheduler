@@ -103,18 +103,13 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Subjects',
+          to: '/subject'
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'List Subjects',
-          to: '/subjects'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'List Assignments',
-          to: '/assignments'
+          title: 'Assignments',
+          to: '/assignment'
         },
       ],
       miniVariant: false,
