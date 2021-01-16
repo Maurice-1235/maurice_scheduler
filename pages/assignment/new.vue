@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CreateObject table_name="Subject" v-bind:cols="cols"></CreateObject>
+    <CreateObject table_name="Assignments" v-bind:cols="cols"></CreateObject>
   </div>
 </template>
 
@@ -12,7 +12,14 @@ export default {
   },
   data() {
     return {
-      cols: ["name"],
+      cols: [
+        "Subject",
+        "Title",
+        "Detail",
+        "Due date",
+        "Score",
+        "Done",
+      ],
     };
   },
 };

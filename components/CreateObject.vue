@@ -1,60 +1,45 @@
 <template>
-    <div>
-        <form>
-    <v-text-field
-      v-model="name"
-      :error-messages="nameErrors"
-      :counter="10"
-      label="Name"
-      required
-      @input="$v.name.$touch()"
-      @blur="$v.name.$touch()"
-    ></v-text-field>
-    <v-text-field
-      v-model="email"
-      :error-messages="emailErrors"
-      label="E-mail"
-      required
-      @input="$v.email.$touch()"
-      @blur="$v.email.$touch()"
-    ></v-text-field>
-    <v-select
-      v-model="select"
-      :items="items"
-      :error-messages="selectErrors"
-      label="Item"
-      required
-      @change="$v.select.$touch()"
-      @blur="$v.select.$touch()"
-    ></v-select>
-    <v-checkbox
-      v-model="checkbox"
-      :error-messages="checkboxErrors"
-      label="Do you agree?"
-      required
-      @change="$v.checkbox.$touch()"
-      @blur="$v.checkbox.$touch()"
-    ></v-checkbox>
-
-    <v-btn
-      class="mr-4"
-      @click="submit"
-    >
-      submit
-    </v-btn>
-    <v-btn @click="clear">
-      clear
-    </v-btn>
-  </form>
-    </div>
+  <div>
+    <v-form>
+      <h3>Add New {{table_name}}</h3>
+      <v-text-field
+        v-model="formModel.name"
+        label="Subject Name"
+        required
+      ></v-text-field>
+      <v-btn color="primary" @click="submitForm">Add</v-btn>
+      <v-btn color="">Back</v-btn>
+    </v-form>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+  props: {
+    table_name: String,
+    cols: Array,
+  },
+  data() {
+    return {
+      formModel: {
+        name: "",
+      },
+    };
+  },
+  methods: {
+    submitForm() {
+      let formData = new FormData();
+      for(let item in this.formModel){
+        formData.append(item, this.formModel[item]);
+      }
+      this.$axios.$post(
+        "http://localhost/maurice_scheduler/create" + this.table_name + ".php",
+        formData
+      );
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
