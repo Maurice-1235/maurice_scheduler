@@ -1,22 +1,20 @@
 <template>
   <div>
-    <ListObjects table_name="subject" v-bind:headers="headers"></ListObjects>
+    <ListObjects :table_name="table_name" v-bind:headers="headers"></ListObjects>
+    <AddButton :table_name="table_name"></AddButton>
   </div>
 </template>
 
 <script>
-import ListObjects from "~/components/ListObjects.vue";
 export default {
   data() {
     return {
+      table_name:"subject",
       headers: [
         "ID",
         "Name",
       ],
     };
-  },
-  components: {
-    ListObjects,
   },
 };
 </script>
