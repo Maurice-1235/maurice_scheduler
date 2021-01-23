@@ -44,7 +44,7 @@ export default {
   methods: {
     async fetchSomething() {
       const records = await this.$axios.$get(
-        "http://localhost/maurice_scheduler/list" + this.table_name + ".php"
+        this.table_name + "/"
       );
       this.records = records;
       this.loaded = true;

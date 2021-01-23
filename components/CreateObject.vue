@@ -33,7 +33,7 @@ export default {
         formData.append(item, this.formModel[item]);
       }
       this.$axios.$post(
-        "http://localhost/maurice_scheduler/create" + this.table_name + ".php",
+        "create" + this.table_name + ".php",
         formData
       );
     },

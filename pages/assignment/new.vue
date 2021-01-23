@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CreateObject table_name="Assignments" v-bind:cols="cols"></CreateObject>
+    <CreateObject table_name="Assignment" v-bind:cols="cols"></CreateObject>
   </div>
 </template>
 

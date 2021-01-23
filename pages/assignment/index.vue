@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ListObjects table_name="assignments" v-bind:headers="headers"></ListObjects>
+    <ListObjects table_name="assignment" v-bind:headers="headers"></ListObjects>
   </div>
 </template>
 

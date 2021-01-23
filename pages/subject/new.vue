@@ -5,11 +5,7 @@
 </template>
 
 <script>
-import CreateObject from "~/components/CreateObject.vue";
 export default {
-  components: {
-    CreateObject,
-  },
   data() {
     return {
       cols: ["name"],
