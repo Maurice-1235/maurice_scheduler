@@ -2,13 +2,13 @@
   <div>
     <v-form>
       <h3>Add New {{table_name}}</h3>
-      <v-text-field
+      <v-text-field v-for="header in headers" :key="header"
         v-model="formModel.name"
-        label="Subject Name"
+        :label="table_name + ' ' + header"
         required
       ></v-text-field>
       <v-btn color="primary" @click="submitForm">Add</v-btn>
-      <v-btn color="">Back</v-btn>
+      <v-btn>Back</v-btn>
     </v-form>
   </div>
 </template>
@@ -17,7 +17,7 @@
 export default {
   props: {
     table_name: String,
-    cols: Array,
+    headers: Array,
   },
   data() {
     return {
@@ -33,7 +33,7 @@ export default {
         formData.append(item, this.formModel[item]);
       }
       this.$axios.$post(
-        "create" + this.table_name + ".php",
+        this.table_name + "/create.php",
         formData
       );
     },
